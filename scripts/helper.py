@@ -1,11 +1,16 @@
 import re
 from datetime import datetime
 import json
+from typing import List
+from pandas import isna
 
 
 # Methods to process data on observation base
-def make_list_of(val: str):
-    return val.replace("{", "").replace("}", "").split(",")
+def make_list_of(val: str) -> List[str]:
+    if not isna(val):
+        return val.replace("{", "").replace("}", "").split(",")
+
+    return None
 
 
 def convert_to_time(val: str):

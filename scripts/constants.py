@@ -49,8 +49,8 @@ EU_CHANGES_COLUMNS = [
 BOOKINGS_VARIABLES = [
     "bid",
     "timestamp",
-    "status",  # 'closed', 'refunded'
-    "search_trip_type",  # 'oneway', 'roundtrip', 'multicity', nan, 'nomad'                                  DROP NAN
+    "status",  # "closed", "refunded"
+    "search_trip_type",  # "oneway", "roundtrip", "multicity", nan, "nomad"
     "departure_time",
     "return_time",
     "total_distance_km",
@@ -64,10 +64,10 @@ BOOKINGS_VARIABLES = [
     "initial_price",
     "weeks_to_departure",
     "booking_window",
-    "route_stability",  # 'new', 'super stable', 'less frequent', 'rare', 'frequent', 'stable', nan         DROP NAN
-    "travel_group",  # 'single', 'couple', 'family', 'group'
-    "segment",  # 'business', 'super stable route', 'single', 'couple', 'family', 'group', 'ota'
-    "service_package_type",  # nan, 'plus', 'premium'
+    "route_stability",  # "new", "super stable", "less frequent", "rare", "frequent", "stable", nan
+    "travel_group",  # "single", "couple", "family", "group"
+    "segment",  # "business", "super stable route", "single", "couple", "family", "group", "ota"
+    "service_package_type",  # nan, "plus", "premium"
     "fare_type_name",  # nan
     "node_arr",
     "city_id_arr",
@@ -82,6 +82,68 @@ BOOKINGS_VARIABLES = [
     "title_arr"  # MR, MS
 ]
 
+BOOKINGS_VARIABLES_TO_USE = [
+    "date",
+    "days_between_purchase_and_start_of_trip",
+    "trip_length_in_days",
+    "passenger_age",
+    "number_of_kids",
+    "status_closed",
+    "status_refunded",
+    "search_oneway",
+    "search_roundtrip",
+    "search_multicity",
+    "search_nomad",
+    "service_none",
+    "service_plus",
+    "service_premium",
+    "route_stability_new",
+    "route_stability_super_stable",
+    "route_stability_less_frequent",
+    "route_stability_rare",
+    "route_stability_frequent",
+    "route_stability_stable",
+    "carriers",
+    "sex",
+    "airports",
+    "countries",
+    "trip_start",
+    "trip_end",
+    "total_distance_km",
+    "passengers",
+    "bags",
+    "price_in_eur",
+]
+
+BOOKINGS_VARIABLES_TO_DROP_IF_NAN = [
+    "date",
+    "days_between_purchase_and_start_of_trip",
+    "passenger_age",
+    "number_of_kids",
+    "status",
+    "search_trip_type",
+    "route_stability",
+    "airlines",
+    "sex",
+    "total_distance_km",
+    "passengers",
+    "bags",
+    "price_in_eur",
+    "airports",
+    "countries",
+    "trip_start",
+    "trip_end",
+]
+
+TITLE_TO_SEX_MAP = {
+    "mr": "m",
+    "ms": "f",
+    "mrs": "f",
+}
+
+TIME_FORMAT = r"\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}"
+ARROW_TIME_FORMAT = "YYYY-MM-DD HH:mm:ss"
+
 TIMESERIES_GRAPH_VARIABLES = [
     "date",
     "bookings",
@@ -91,40 +153,40 @@ TIMESERIES_GRAPH_VARIABLES = [
 ]
 
 EU_COUNTRIES = {
-    'Germany': 'DE',
-    'Denmark': 'DK',
-    'Portugal': 'PT',
-    'Spain': 'ES',
-    'France': 'FR',
-    'Italy': 'IT',
-    'Ireland': 'IE',
-    'Austria': 'AT',
-    'Greece': 'GR',
-    'Belgium': 'BE',
-    'Netherlands': 'NL',
-    'Bulgaria': 'BG',
-    'Hungary': 'HU',
-    'Finland': 'FI',
-    'Romania': 'RO',
-    'Sweden': 'SE',
-    'Poland': 'PL',
-    'Malta': 'MT',
-    'Croatia': 'HR',
-    'Luxembourg': 'LU',
-    'Lithuania': 'LT',
-    'Latvia': 'LV',
-    'Estonia': 'EE',
-    'Slovakia': 'SK',
-    'Slovenia': 'SI',
-    'Czechia': 'CZ',
-    'Cyprus': 'CY',
+    "Germany": "DE",
+    "Denmark": "DK",
+    "Portugal": "PT",
+    "Spain": "ES",
+    "France": "FR",
+    "Italy": "IT",
+    "Ireland": "IE",
+    "Austria": "AT",
+    "Greece": "GR",
+    "Belgium": "BE",
+    "Netherlands": "NL",
+    "Bulgaria": "BG",
+    "Hungary": "HU",
+    "Finland": "FI",
+    "Romania": "RO",
+    "Sweden": "SE",
+    "Poland": "PL",
+    "Malta": "MT",
+    "Croatia": "HR",
+    "Luxembourg": "LU",
+    "Lithuania": "LT",
+    "Latvia": "LV",
+    "Estonia": "EE",
+    "Slovakia": "SK",
+    "Slovenia": "SI",
+    "Czechia": "CZ",
+    "Cyprus": "CY",
 }
 
 EEA_SUI_COUNTRIES = {
     **EU_COUNTRIES,
-    'Norway': 'NO',
-    'Iceland': 'IS',
-    'Switzerland': 'CH',
+    "Norway": "NO",
+    "Iceland": "IS",
+    "Switzerland": "CH",
 }
 
 MONTHS = [
